@@ -5,7 +5,7 @@ using UnityEngine;
 public class droppedend : MonoBehaviour
 {
     public float stopvalue = 0;
-    public float speed = 8;
+    public float endspeed;
     private AudioSource audioSource;
     public AudioClip step;
     // Start is called before the first frame update
@@ -17,17 +17,20 @@ public class droppedend : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(0, -speed * Time.deltaTime, 0);
+        transform.Translate(0, endspeed * Time.deltaTime, 0);
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            speed = 0;
+            endspeed = 0;
             collision.gameObject.GetComponent<movement>().Stop(stopvalue);
             audioSource.PlayOneShot(step);
-            //end game
+            Debug.Log("end game");
+        }
+        if (collision.gameObject.tag == "Lava")
+        {
             Destroy(gameObject);
         }
     }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4117205024036199029}
   m_Layer: 0
   m_Name: coin
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,9 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinvalue: 1
-  coinspeed: 0.1
+  coinspeed: 0
   sr: {fileID: 0}
-  bite: {fileID: 8300000, guid: 6742d0ab318a05e49905c7e848f7c1c1, type: 3}
 --- !u!61 &-988266594854859294
 BoxCollider2D:
   m_ObjectHideFlags: 0

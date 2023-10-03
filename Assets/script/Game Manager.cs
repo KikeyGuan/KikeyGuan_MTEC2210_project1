@@ -23,18 +23,24 @@ public class GameManager : MonoBehaviour
     {
         Vector3 pos = new Vector3(Random.Range(-widthvalue, widthvalue), heightvalue, 0);
         GameObject endclone = Instantiate(end, pos, Quaternion.identity);
+        droppedend dropEnd = end.GetComponent<droppedend>();
+        dropEnd.endspeed = Random.Range(-5, -10);
     }
 
     public void spwancoin()
     {
         Vector3 pos = new Vector3(Random.Range(-widthvalue, widthvalue), heightvalue, 0);
         GameObject coinclone = Instantiate(coin, pos, Quaternion.identity);
+        droppedcoin dropCoin = coin.GetComponent<droppedcoin>();
+        dropCoin.coinspeed = Random.Range(-4, -10);
     }
 
     public void spwantransition()
     {
         Vector3 pos = new Vector3(Random.Range(-widthvalue, widthvalue), heightvalue, 0);
         GameObject transitionclone = Instantiate(transition, pos, Quaternion.identity);
+        droppedtransition dropTransit = transition.GetComponent<droppedtransition>();
+        dropTransit.transitspeed = Random.Range(-5, -10);
     }
 
     // Update is called once per frame

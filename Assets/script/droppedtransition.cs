@@ -5,7 +5,7 @@ using UnityEngine;
 public class droppedtransition : MonoBehaviour
 {
     public float stopvalue = 0;
-    public float speed = 6;
+    public float transitspeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,16 +16,19 @@ public class droppedtransition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(0, -speed * Time.deltaTime, 0);
+        transform.Translate(0, transitspeed * Time.deltaTime, 0);
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            speed = 0;
             collision.gameObject.GetComponent<movement>().Stop(stopvalue);
-            //CHANGE TO NEXT SCENE
+            Debug.Log("next scene");
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.tag == "Lava")
+        {
             Destroy(gameObject);
         }
     }
